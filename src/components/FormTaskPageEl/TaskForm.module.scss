@@ -1,0 +1,100 @@
+.taskForm {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	padding: 24px;
+	background: #fff;
+	animation: fadeIn 0.4s ease;
+}
+
+.taskForm h2 {
+	font-size: 20px;
+	font-weight: 600;
+	color: #222;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.taskForm label {
+	font-size: 14px;
+	font-weight: 500;
+	color: #444;
+	margin-bottom: 6px;
+	display: block;
+}
+
+.taskForm input[type='text'],
+.taskForm input[type='date'] {
+	width: 100%;
+	padding: 12px 14px;
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	font-size: 15px;
+	color: #333;
+	background: #fafafa;
+	transition: all 0.25s ease;
+
+	&:focus {
+		outline: none;
+		border-color: #6a11cb;
+		background: #fff;
+		box-shadow: 0 0 0 4px rgba(106, 17, 203, 0.12);
+	}
+}
+
+.formBtns {
+	display: flex;
+	justify-content: flex-end;
+	gap: 14px;
+	margin-top: 12px;
+
+	button {
+		padding: 10px 20px;
+		border: none;
+		border-radius: 10px;
+		font-size: 14px;
+		cursor: pointer;
+		font-weight: 500;
+		transition: all 0.25s ease;
+	}
+
+	button[type='submit'] {
+		background: linear-gradient(135deg, #6a11cb, #2575fc);
+		color: #fff;
+
+		&:hover {
+			transform: translateY(-2px) scale(1.03);
+			box-shadow: 0 6px 14px rgba(106, 17, 203, 0.25);
+		}
+
+		&:active {
+			transform: scale(0.95);
+		}
+	}
+
+	.cancelBtn {
+		background: #f4f4f4;
+		color: #333;
+
+		&:hover {
+			background: #e4e4e4;
+		}
+	}
+}
+
+.error {
+	font-size: 12px;
+	color: #ff4d4f;
+	margin-top: 4px;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}

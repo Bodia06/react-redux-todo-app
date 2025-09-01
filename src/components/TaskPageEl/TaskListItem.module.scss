@@ -1,0 +1,141 @@
+.taskListItemContainer {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px 20px;
+	margin-bottom: 15px;
+	background: #f5f6fa;
+	border-radius: 12px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.taskMainInfo {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+.taskCheckbox {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 20px;
+	height: 20px;
+	border: 2px solid #6a11cb;
+	border-radius: 4px;
+	cursor: pointer;
+	position: relative;
+	transition: all 0.2s ease;
+
+	&:checked {
+		background-color: #6a11cb;
+		border-color: #6a11cb;
+
+		&::after {
+			content: '';
+			position: absolute;
+			left: 5px;
+			top: 1px;
+			width: 6px;
+			height: 12px;
+			border: solid #fff;
+			border-width: 0 2px 2px 0;
+			transform: rotate(45deg);
+		}
+	}
+
+	&:hover {
+		transform: scale(1.1);
+	}
+}
+
+.taskName {
+	font-size: 18px;
+	font-weight: 500;
+	color: #444;
+	margin: 0;
+
+	&.completed {
+		text-decoration: line-through;
+		color: #888;
+	}
+}
+
+.taskDate {
+	font-size: 14px;
+	color: #888;
+	margin: 0;
+}
+
+.taskBtnsNav {
+	display: flex;
+	gap: 10px;
+}
+
+.taskBtnEdit,
+.taskBtnDelete {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 38px;
+	height: 38px;
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	font-size: 18px;
+	padding: 0;
+
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.taskBtnEdit {
+	background-color: #6a11cb;
+	color: #fff;
+
+	&:hover {
+		background-color: #2575fc;
+		transform: scale(1.1);
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+	}
+
+	&:active {
+		transform: scale(0.95);
+	}
+}
+
+.taskBtnDelete {
+	background-color: #ff4d4f;
+	color: #fff;
+
+	&:hover {
+		background-color: #d9363e;
+		transform: scale(1.1);
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+	}
+
+	&:active {
+		transform: scale(0.95);
+	}
+}
+
+.editFormTaskPageContainer {
+	position: absolute;
+	top: 10%;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	max-width: 650px;
+	width: 100%;
+	min-height: 450px;
+	background: #ffffff;
+	border-radius: 20px;
+	padding: 30px 25px;
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+	z-index: 2;
+	font-family: 'Inter', sans-serif;
+}

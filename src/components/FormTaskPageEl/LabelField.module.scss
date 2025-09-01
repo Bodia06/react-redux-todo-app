@@ -1,0 +1,33 @@
+.fieldContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+
+	label {
+		font-weight: 500;
+		color: #555;
+		font-size: 0.95rem;
+	}
+
+	input,
+	select,
+	textarea {
+		padding: 12px 15px;
+		border: 1.5px solid #ccc;
+		border-radius: 12px;
+		font-size: 1rem;
+		transition: all 0.3s ease;
+		outline: none;
+
+		&:focus {
+			border-color: #4f46e5;
+			box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+		}
+	}
+
+	.error {
+		color: #e11d48;
+		font-size: 0.85rem;
+		margin-top: 4px;
+	}
+}
