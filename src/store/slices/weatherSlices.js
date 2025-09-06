@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import INITIAL_STATE_WEATHER from '../../constans/initialStateWeather'
 import * as API from '../../api/index'
+
 const WEATHER_SLICE_NAME = 'weather'
 
 export const getWeatherThunk = createAsyncThunk(
@@ -20,7 +21,7 @@ const weatherSlice = createSlice({
     reducers: {},
     extraReducers: builder => {
         builder.addCase(getWeatherThunk.pending, state => {
-            state.isFetching = false
+            state.isFetching = true
         })
         builder.addCase(getWeatherThunk.fulfilled, (state, { payload }) => {
             state.isFetching = false
