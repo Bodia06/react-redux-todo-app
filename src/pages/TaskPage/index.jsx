@@ -8,8 +8,9 @@ import {
     editTask,
     removeTask,
 } from '../../store/slices/taskSlice'
-import CreateFormTaskPage from '../CreateFormTaskPage'
+
 import Header from '../../components/Header'
+import CreateFormTaskPage from '../../components/CreateFormTaskPage'
 
 function TaskPage({
     tasks,
