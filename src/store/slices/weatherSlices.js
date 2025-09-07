@@ -1,6 +1,11 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import INITIAL_STATE_WEATHER from '../../constans/initialStateWeather'
 import * as API from '../../api/index'
+
+const INITIAL_STATE_WEATHER = {
+    weatherData: [],
+    isFetching: false,
+    error: null,
+}
 
 const WEATHER_SLICE_NAME = 'weather'
 
