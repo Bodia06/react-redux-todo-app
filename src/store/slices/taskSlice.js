@@ -10,33 +10,51 @@ const INITIAL_STATE_TASK = {
             complated: false,
         },
     ],
+    filter: 'all',
+    orderBy: 'none',
 }
 
 const taskSlice = createSlice({
     name: 'taskInfo',
     initialState: INITIAL_STATE_TASK,
     reducers: {
-        addTask: ({ tasks }, { payload }) => {
-            tasks.push({ ...payload, id: uuidv4(), completed: false })
+        addTask: (state, { payload }) => {
+            state.tasks.push({
+                ...payload,
+                id: uuidv4(),
+                completed: false,
+            })
         },
-        removeTask: ({ tasks }, { payload }) => {
-            const index = tasks.findIndex(task => task.id === payload)
-            if (index !== -1) tasks.splice(index, 1)
+        removeTask: (state, { payload }) => {
+            state.tasks = state.tasks.filter(task => task.id !== payload)
         },
-        editTask: ({ tasks }, { payload }) => {
-            const task = tasks.find(t => t.id === payload.id)
+        editTask: (state, { payload }) => {
+            const task = state.tasks.find(t => t.id === payload.id)
             if (task) {
                 task.name = payload.name
                 task.lastDateToRealization = payload.lastDateToRealization
             }
         },
-        complatedTask: ({ tasks }, { payload }) => {
-            const task = tasks.find(t => t.id === payload)
-            if (task) task.completed = !task.completed // виправлено
+        complatedTask: (state, { payload }) => {
+            const task = state.tasks.find(t => t.id === payload)
+            if (task) task.completed = !task.completed
+        },
+        setFilter: (state, { payload }) => {
+            state.filter = payload
+        },
+        setOrderBy: (state, { payload }) => {
+            state.orderBy = payload
         },
     },
 })
 
 const { reducer, actions } = taskSlice
-export const { addTask, removeTask, editTask, complatedTask } = actions
+export const {
+    addTask,
+    removeTask,
+    editTask,
+    complatedTask,
+    setFilter,
+    setOrderBy,
+} = actions
 export default reducer
