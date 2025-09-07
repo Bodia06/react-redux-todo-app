@@ -22,6 +22,7 @@ const weatherSlice = createSlice({
     extraReducers: builder => {
         builder.addCase(getWeatherThunk.pending, state => {
             state.isFetching = true
+            state.error = null
         })
         builder.addCase(getWeatherThunk.fulfilled, (state, { payload }) => {
             state.isFetching = false
